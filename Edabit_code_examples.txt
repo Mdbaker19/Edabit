@@ -19,3 +19,16 @@ function cubeSquareRoot(num) {
 	var n = Math.sqrt(num);
 	return (n * n * n);
 }
+Create a function that takes an array of numbers and returns only the even values.
+function isEven(x) {
+	return(x % 2 == 0);
+}
+function noOdds(arr) {
+	var newArray = [];
+	for(var i = 0; i < arr.length; i++){
+		var input = arr[i];
+		if(isEven(input) == true){
+			newArray.push(input);
+		} else continue;
+	} return newArray;
+}
