@@ -40,3 +40,7 @@ Create a function that takes a string and returns the word count. The string wil
 function countWords(str) {
 	return str.split(" ").length;
 }
+Create a function that takes a number (from 1 - 60) and returns a corresponding string of hyphens
+function Go(num) {
+	return "-".repeat(num);
+}
