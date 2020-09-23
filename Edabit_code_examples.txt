@@ -44,3 +44,7 @@ Create a function that takes a number (from 1 - 60) and returns a corresponding 
 function Go(num) {
 	return "-".repeat(num);
 }
+A number added with its additive inverse equals zero. Create a function that returns an array of additive inverses.
+function additiveInverse(arr) {
+	return arr.map((element) => element *= (-1));
+}
