@@ -3,3 +3,14 @@ Create a function that finds the maximum range of a triangle's third edge, where
 function nextEdge(side1, side2) {
 	return ((side1 + side2)-1);
 }
+You are given 2 out of 3 angles in a triangle, in degrees.
+
+Write a function that classifies the missing angle as either "acute", "right", or "obtuse" based on its degrees.
+function missingAngle(angle1, angle2) {
+	var angle3 = (180-(angle1 + angle2));
+	if(angle3 > 90) {
+		return "obtuse";
+	} else if (angle3 == 90) {
+		return "right";
+	} else return "acute";
+}
