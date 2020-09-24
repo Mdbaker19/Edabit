@@ -60,3 +60,9 @@ function diffMaxMin(arr) {
 	var mn = Math.min(...arr);
 	return (mx - mn);
 }
+Create a function that converts a date formatted as MM/DD/YYYY to YYYYDDMM.
+function formatDate(date) {
+	var newArray = date.split("/");
+	var answer = newArray.reverse();
+	return answer.join("");
+}
