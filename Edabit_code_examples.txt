@@ -74,3 +74,49 @@ Create a function that takes an array of strings and returns the words that are 
 function isFourLetters(arr) {
 	return (arr.filter(word => (word.length == 4)));
 }
+
+Create a function that removes the first and last characters from a string.
+
+function removeFirstLast(str) {
+	if(str.length > 2){
+		var answer = str.slice(1,-1);
+		return answer;
+	} return str;
+}
+
+Create a function to calculate the determinant of a 2 * 2 matrix. The determinant of the following matrix is: ad - bc
+
+function calcDeterminant(matrix) {
+	var newArray = matrix.flat();
+	return ((newArray[0] * newArray[3]) - (newArray[1] * newArray[2]));
+}
+Take a list of names.
+Add "Hello" to every name.
+Make one big string with all greetings.
+The solution should be one string with a comma in between every "Hello (Name)".
+
+function greetPeople(names) {
+	var withHello = (names.map((element) => "Hello " + element));
+	return withHello.join(", ");
+
+
+}
+
+Given an array of values return the standard deviation rounded to the nearest hundredth.
+
+function addArray(a, b){
+	return a + b;
+}
+
+function standardDeviation(arr) {
+	var lengthOfArr = arr.length;
+	var mean = (arr.reduce(addArray)) / (lengthOfArr);
+	var diff = (arr.map((element) => Math.abs((element) - mean)));
+	var roundedDiffAbs = (diff.map((element) => Math.round(element)));
+	var squareddRDA = (roundedDiffAbs.map((element) => element * element));
+	var reducedSRDA = (squareddRDA.reduce(addArray));
+	var dividedRSRDA = reducedSRDA / lengthOfArr;
+	var answer = Math.sqrt(dividedRSRDA);
+	var roundedAnswerStr = answer.toFixed(2);
+	return parseFloat(roundedAnswerStr);
+}
