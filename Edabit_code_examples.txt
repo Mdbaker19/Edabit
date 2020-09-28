@@ -149,3 +149,12 @@ function getDecimalPlaces(num) {
 		return ((num.length - 1) - (num.indexOf(".")));
 	}
 }
+Create a function that takes two number strings and returns their sum as a string
+If any input is "", undefined or null, return "Invalid Operation"
+
+function add(num1, num2) {
+	if(!num1 || !num2) {
+		return 'Invalid Operation';
+	}
+	return (parseInt(num1) + parseInt(num2)).toString();
+}
