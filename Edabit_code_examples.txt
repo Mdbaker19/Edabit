@@ -120,3 +120,14 @@ function standardDeviation(arr) {
 	var roundedAnswerStr = answer.toFixed(2);
 	return parseFloat(roundedAnswerStr);
 }
+
+Given a number, return the difference between the maximum and minimum numbers that can be formed when the digits are rearranged.
+
+ function rearrangedDifference(num) {
+ 	var newArrayMax = num.toString().split("").sort().reverse().join("");
+ 	var newArrayMin = num.toString().split("").sort().join("");
+ 	var highest = parseFloat(newArrayMax);
+ 	var lowest = parseFloat(newArrayMin);
+ 	return highest - lowest;
+ }
+
