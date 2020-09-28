@@ -131,3 +131,13 @@ Given a number, return the difference between the maximum and minimum numbers th
  	return highest - lowest;
  }
 
+Create a function that determines whether a shopping order is eligible for free shipping. An order is eligible for free shipping if the total cost of items purchased exceeds $50.00.
+
+function freeShipping(order) {
+	function added(x, y) {
+		return x + y;
+	}
+	let total = Object.values(order).reduce(added);
+	return total > 50;
+}
+
