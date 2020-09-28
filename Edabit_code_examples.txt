@@ -158,3 +158,13 @@ function add(num1, num2) {
 	}
 	return (parseInt(num1) + parseInt(num2)).toString();
 }
+
+Given a total due and an array representing the amount of change in your pocket, determine whether or not you are able to pay for the item. Change will always be represented in the following order: quarters, dimes, nickels, pennies.
+
+function changeEnough(change, amountDue) {
+	let q = change[0];
+	let d = change[1];
+	let n = change[2];
+	let p = change[3];
+	return amountDue <= ((q * .25) + (d * .1) + (n * .05) + (p * .01));
+}
