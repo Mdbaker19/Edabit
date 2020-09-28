@@ -140,4 +140,12 @@ function freeShipping(order) {
 	let total = Object.values(order).reduce(added);
 	return total > 50;
 }
+Create a function that returns the number of decimal places a number (given as a string) has. Any zeros after the decimal point count towards the number of decimal places
 
+function getDecimalPlaces(num) {
+	if(num.indexOf(".") == -1){
+		return 0;
+	} else {
+		return ((num.length - 1) - (num.indexOf(".")));
+	}
+}
