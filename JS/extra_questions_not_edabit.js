@@ -71,13 +71,45 @@ function hasEnglish(string){
     return false;
 }
 
-console.log(hasEnglish("FaagdnglishAGG"));
-console.log(hasEnglish("SMFENgliSHasnD"));
+// console.log(hasEnglish("FaagdnglishAGG"));
+// console.log(hasEnglish("SMFENgliSHasnD"));
 
+//-------------------QUESTION 3---------------------//
+// Given an array of integers, write a function that returns an array of 2 integers.
+//     The first integer will be the count of the positive integers, and the second integer
+// will be the sum of the negative integers. If the input is empty or null, return an empty array.
+//
+//     Examples:
+//
+//
+// Input: [1, -6, 5, 4, 3, -7, -10, 201, -3] | Output: [5, -26]
+// Input: null | Output: []
 
+function twoNumsFromArray(array){
+    let output = [];
+    let count = 0;
+    let negSum = 0;
+    if(array === null || array.length === 0){
+        return output;
+    }
+    else{
+        for(let i = 0; i < array.length; i++){
+            if(array[i] > 0){
+                count++;
+            } else {
+                //for the negative nums
+                negSum += array[i];
+            }
+        } //outside for loop
+        output.push(count);
+        output.push(negSum);
+    }
+        return output;
+}
 
-
-
+// console.log(twoNumsFromArray([1, -6, 5, 4, 3, -7, -10, 201, -3]));
+// console.log(twoNumsFromArray(null));
+// console.log(twoNumsFromArray([]));
 
 
 
