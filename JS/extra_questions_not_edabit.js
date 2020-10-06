@@ -113,6 +113,55 @@ function twoNumsFromArray(array){
 
 
 
+//------------------QUESTION 4---------------//
+
+// Write a function that translates an input string by replacing each character
+// with a number representing the amount of times that character appears in the string.
+//     Then separate each individual number with a different character.
+//
+//     Examples:
+//
+//
+// Input: "hello world", "-" | Output: "1-1-3-3-2-1-1-2-1-3-1"
+// Input: "challenge", "/" | Output: "1/1/1/2/2/2/1/1/2"
+
+//start with blank array, join by divider after numbers pushed in
+// function amountOfTimesCharRepeated(string, divider){
+//     let output = [1,2,3,4,5];
+//
+//      does work dividing the output by the divider so this will be a base
+//      how to do this without RegEx????
+//     let answer = output.join(divider);
+//     return answer;
+// }
+function amountOfTimesCharRepeated(string, divider){
+    let output = [];
+
+
+
+    let answer = output.join(divider);
+    return answer;
+}
+
+console.log(amountOfTimesCharRepeated("hello world", "-"));
+console.log(amountOfTimesCharRepeated("challenge", "/"));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
