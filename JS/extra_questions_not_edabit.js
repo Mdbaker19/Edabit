@@ -25,7 +25,7 @@ function narcissisticNum(j) {
 
 
 
-
+//---------------QUESTION 1---------------------------//
 // Write a function that returns the SUM of a sequence of numbers. This sequence is determined by three variables:
 // start, finish, and step. The sequence begins at start, ends at finish, and goes up by step until it reaches finish
 // or a number that when increased by step would go past finish.
@@ -46,12 +46,33 @@ function sumOfSequenceSteps(start, finish, step){
 }
 
 
-console.log(sumOfSequenceSteps(1, 4, 1));
-console.log(sumOfSequenceSteps(4, 10, 5));
+// console.log(sumOfSequenceSteps(1, 4, 1));
+// console.log(sumOfSequenceSteps(4, 10, 5));
 
 
+//-------------------QUESTION 2------------------------//
+// Given a string of any length with any characters in it, write a function
+// to determine whether or not the string contains the whole word "english".
+//     The order of characters/spelling is important, a string "agkjnenglishsad" would return true
+// while "asdneglihsth" would return false. Upper and lower case does not matter.
+//     Return values should be booleans (true/false).
+//
+//     Examples:
+//
+//
+// Input: "FaagdnglishAGG" | Output: false
+// Input: "SMFENgliSHasnD" | Output: true
 
+function hasEnglish(string){
+    let lowString = string.toLowerCase();
+    if(lowString.includes("english")){
+        return true;
+    }
+    return false;
+}
 
+console.log(hasEnglish("FaagdnglishAGG"));
+console.log(hasEnglish("SMFENgliSHasnD"));
 
 
 
