@@ -92,7 +92,7 @@ function twoNumsFromArray(array){
     if(array === null || array.length === 0){
         return output;
     }
-    else{
+    else{ // not necesarilly needed
         for(let i = 0; i < array.length; i++){
             if(array[i] > 0){
                 count++;
@@ -101,10 +101,10 @@ function twoNumsFromArray(array){
                 negSum += array[i];
             }
         } //outside for loop
-        output.push(count);
-        output.push(negSum);
+        //output.push(count);
+        //output.push(negSum);
     }
-        return output;
+        return [count, negSum];
 }
 
 // console.log(twoNumsFromArray([1, -6, 5, 4, 3, -7, -10, 201, -3]));
@@ -136,6 +136,8 @@ function twoNumsFromArray(array){
 // }
 function amountOfTimesCharRepeated(string, divider){
     let output = [];
+    //for loop for string length, for loop within to check occurrence of that same char, counter within first for loop
+    //increment by occurrence
 
 
 
