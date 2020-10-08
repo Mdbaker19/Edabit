@@ -125,12 +125,9 @@ function twoNumsFromArray(array){
 // Input: "hello world", "-" | Output: "1-1-3-3-2-1-1-2-1-3-1"
 // Input: "challenge", "/" | Output: "1/1/1/2/2/2/1/1/2"
 
-//start with blank array, join by divider after numbers pushed in
 function amountOfTimesCharRepeated(string, divider){
+    //start with blank array, join by divider after numbers pushed in
     let output = [];
-    //for loop for string length, for loop within to check occurrence of that same char, counter within first for loop
-    //increment by occurrence
-
     //loop through string one time to pick each char out one at a time
     for(let i = 0; i < string.length; i++){
         //this is the char to compare in the second loop
@@ -139,7 +136,6 @@ function amountOfTimesCharRepeated(string, divider){
         let countOfCharToCheck = 0;
         // loop again at char at j ( 1 after the char at i) to compare against charToCheck
         for(let j = 0; j < string.length; j++){
-
             //if any char after first one being check matches again:
             if(charToCheck === string.charAt(j)){
                 //increase the count
@@ -148,19 +144,33 @@ function amountOfTimesCharRepeated(string, divider){
             //push that count in
         }output.push(countOfCharToCheck);
     }
-
-    let answer = output.join(divider);
-    return answer;
+    return output.join(divider);
 }
 
 //console.log(amountOfTimesCharRepeated("hello world", "-"));
 //console.log(amountOfTimesCharRepeated("challenge", "/"));
 
 
+//------------------QUESTION 5------------------//
+// Given a string of names like this: "Travis:Meyer;Gene:Carangal;Tom:Young;Jeff:Meyer",
+//     write a function that makes the entire string uppercase and sorts it in alphabetical
+// order by last name. If the last names are the same sort them by the first name.
+//     Put the last name in front of the first name, remove the colons and semicolons, put the names
+// in parentheses and separate the names with commas.
+//
+//     Example:
+//
+// The end string should look like this: "(CARANGAL, GENE)(MEYER, JEFF)(MEYER, TRAVIS)(YOUNG, TOM)"
 
 
+function reorderStrings(string){
+    let orderedArrayOfStrings = string.split(";");
+    orderedArrayOfStrings.forEach((ele) => {
+        ele.reverse();
+    });
+}
 
-
+console.log(reorderStrings("Travis:Meyer;Gene:Carangal;Tom:Young;Jeff:Meyer"));
 
 
 
