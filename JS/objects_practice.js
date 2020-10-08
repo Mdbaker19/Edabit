@@ -247,18 +247,45 @@ var aphorisms = [
 
 //TODO: What variable represents the array of aphorisms
 
+//aphorisms
+
 //TODO: Console.log 'aphorisms'. Explore the data structure. What are some things you notice?
+
+console.log(aphorisms);
 
 //TODO:How long is this array?
 
+console.log("aphorisms array is: " + aphorisms.length);
+
 //TODO: Assign the first quote/author object to the variable firstQuote. Log the quote from the variable. Log the author from the variable.
 
+let firstQ = aphorisms[0].quote;
+let firstA = aphorisms[0].author;
+
+console.log(firstQ);
+console.log(firstA);
+console.log("-----------SPACE----------");
+
 //TODO: Assign the last quote/author object to the variable lastQuote. Log the quote from the variable. Log the author from the variable.
+
+let lastQ = aphorisms[aphorisms.length-1].quote;
+let lastA = aphorisms[aphorisms.length-1].author;
+
+console.log(lastQ);
+console.log(lastA);
+console.log("-----------SPACE-------------");
 
 //TODO: Without using a loop, log the first 5 quotes and their author in the format quote + "-author"
 //Example: "build something 100 people love, not something 1 million people kind of like -Brian Chesky"
 
+for(let i = 0; i <=5; i++){
+    console.log(aphorisms[i].quote + "-'" + aphorisms[i].author + "'");
+    console.log("-----------SPACE-------------");
+}
+
 //TODO: After doing this 'manually' why is a loop more beneficial?
+
+//saves A LOT of time
 
 //TODO: Write a function named 'formatQuote' that accepts an aphorism object and returns a string containing the quote and author in the format "quote" + "-author"
 /*
@@ -271,9 +298,27 @@ var aphorisms = [
 **/
 
 //TODO: Write a function named getRandomQuote, that accepts the aphorisms array, and returns a string that contains a random quote and author in the format "quote" + "-author".
+let randomNum = Math.floor(Math.random() * aphorisms.length - 1) +1;
+
+function getRandomQuote(){
+
+}
+
 
 //TODO: Write a function named fiveRandomQuotes, that accepts the aphorisms array and returns an array of five random quotes and authors in the format "quote" + "-author".
+function fiveRandomQuotes(){
+
+}
+
 
 //TODO: Write a function named 'anonQuotes' that accepts the aphorisms array and returns an array of aphorism objects of all quotes by 'anonymous'. Each object should contain the following properties: { quote: <QUOTE_HERE>, author: <AUTHOR_HERE>}.
+function anonQuotes(){
+
+}
+
 
 //TODO: Write a function named 'everyOddQuote', that accepts the aphorisms array and returns an array of objects of every odd indexed quote. Each object should contain the following properties: { id: <INDEX_HERE>, quote: <QUOTE_HERE>, author: <AUTHOR_HERE>, rating: <RANDOM_RATING_HERE>}. The random rating should be a number between 1 and 5.
+function everyOddQuote(){
+
+}
+
