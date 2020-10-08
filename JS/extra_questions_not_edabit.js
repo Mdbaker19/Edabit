@@ -126,27 +126,35 @@ function twoNumsFromArray(array){
 // Input: "challenge", "/" | Output: "1/1/1/2/2/2/1/1/2"
 
 //start with blank array, join by divider after numbers pushed in
-// function amountOfTimesCharRepeated(string, divider){
-//     let output = [1,2,3,4,5];
-//
-//      does work dividing the output by the divider so this will be a base
-//      how to do this without RegEx????
-//     let answer = output.join(divider);
-//     return answer;
-// }
 function amountOfTimesCharRepeated(string, divider){
     let output = [];
     //for loop for string length, for loop within to check occurrence of that same char, counter within first for loop
     //increment by occurrence
 
+    //loop through string one time to pick each char out one at a time
+    for(let i = 0; i < string.length; i++){
+        //this is the char to compare in the second loop
+        let charToCheck = string.charAt(i);
+        // every char checked is there at least one time
+        let countOfCharToCheck = 0;
+        // loop again at char at j ( 1 after the char at i) to compare against charToCheck
+        for(let j = 0; j < string.length; j++){
 
+            //if any char after first one being check matches again:
+            if(charToCheck === string.charAt(j)){
+                //increase the count
+                countOfCharToCheck++;
+            }
+            //push that count in
+        }output.push(countOfCharToCheck);
+    }
 
     let answer = output.join(divider);
     return answer;
 }
 
-console.log(amountOfTimesCharRepeated("hello world", "-"));
-console.log(amountOfTimesCharRepeated("challenge", "/"));
+//console.log(amountOfTimesCharRepeated("hello world", "-"));
+//console.log(amountOfTimesCharRepeated("challenge", "/"));
 
 
 
