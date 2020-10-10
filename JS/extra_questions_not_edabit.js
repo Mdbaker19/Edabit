@@ -164,13 +164,54 @@ function amountOfTimesCharRepeated(string, divider){
 
 
 function reorderStrings(string){
+    let secondOutput = [];
+    let output = [];
     let orderedArrayOfStrings = string.split(";");
     orderedArrayOfStrings.forEach((ele) => {
-        ele.reverse();
+        let splitUp = ele.split(":");//is a string so can split when for eached
+        output.push(splitUp);
     });
+    output.forEach((element) => {
+        let reverse = element.unshift();
+        element.push(reverse);
+    });
+    return output;
 }
 
-console.log(reorderStrings("Travis:Meyer;Gene:Carangal;Tom:Young;Jeff:Meyer"));
+//console.log(reorderStrings("Travis:Meyer;Gene:Carangal;Tom:Young;Jeff:Meyer"));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// question something//
+/*
+Input "Trick or Treat"
+Output: ['Trick', 'or', 'Treat']
+ */
+
+function split(string){
+    return string.split(" ");
+}
+
+console.log(split("Trick or Treat"));
 
 
 
