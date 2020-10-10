@@ -168,3 +168,11 @@ function changeEnough(change, amountDue) {
 	let p = change[3];
 	return amountDue <= ((q * .25) + (d * .1) + (n * .05) + (p * .01));
 }
+
+Let's say we wanted to change the number of pages that Google could skip to. Create a function where given a number of pages n, return the word "Google" but with the correct number of "o"s.
+
+function googlify(n) {
+	if(n > 1){
+	return ("G" + "o".repeat(n) + "gle");
+  } return "invalid";
+}
