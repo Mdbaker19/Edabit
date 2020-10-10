@@ -190,3 +190,16 @@ function showdown(p1, p2) {
 	}
 	return "p2";
 }
+
+Create a function that takes in two arrays: the array of user-typed words, and the array of correctly-typed words and outputs an array containing 1s (correctly-typed words) and -1s (incorrectly-typed words).
+
+function correctStream(user, correct) {
+	let output = [];
+	for(let i = 0; i < user.length; i++){
+		if(user[i] === correct[i]){
+			output.push(1);
+		}
+		else output.push(-1);
+	}
+	return output;
+}
