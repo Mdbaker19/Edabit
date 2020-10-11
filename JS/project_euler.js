@@ -46,10 +46,10 @@ function evenFibSum(max){
         let n = fibArray.length - 1;
         let next = (fibArray[n]) + (fibArray[n - 1]);
         fibArray.push(next);
-        count++;
+        var evenFibArray = fibArray.filter((a) => a % 2 === 0);
+        count = evenFibArray.reduce((a, b) => a + b);
     }
-    let evenFibArray = fibArray.filter((a) => a % 2 === 0);
     return evenFibArray.reduce((a, b) => a + b);
 }
 
-console.log(evenFibSum(22));
+console.log(evenFibSum(4000000));
