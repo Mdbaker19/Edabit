@@ -25,20 +25,6 @@ function sumOfMult(x){
 // By considering the terms in the Fibonacci sequence whose values do not
 // exceed four million, find the sum of the even-valued terms
 
-// function evenSumOfFibonacciToFourMil(max){
-//     let sumOfEvens;
-//     let fibArray = [1, 2, 3, 5, 8, 13, 21, 34, 55, 89];
-//     let n = fibArray.length - 1;
-//     let next = (fibArray[n]) + (fibArray[n - 1]);
-//     fibArray.push(next);
-//
-//     let evenFibArray = fibArray.filter((a) => a % 2 === 0);
-//     sumOfEvens = evenFibArray.reduce((a, b) => a + b);
-//     return sumOfEvens;
-// }
-// max is 4,000,000 in this problem
-//console.log(evenSumOfFibonacciToFourMil(4000000));
-
 function evenFibSum(max){
     let count = 0;
     let fibArray = [1, 2, 3, 5, 8, 13, 21, 34, 55, 89];
@@ -52,4 +38,4 @@ function evenFibSum(max){
     return evenFibArray.reduce((a, b) => a + b);
 }
 
-console.log(evenFibSum(4000000));
+//console.log(evenFibSum(4000000));
