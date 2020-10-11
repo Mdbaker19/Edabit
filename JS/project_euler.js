@@ -27,15 +27,88 @@ function sumOfMult(x){
 
 function evenFibSum(max){
     let count = 0;
-    let fibArray = [1, 2, 3, 5, 8, 13, 21, 34, 55, 89];
+    let fibArray = [1, 2, 3];
     for(let i = 0; count < max; i++){
         let n = fibArray.length - 1;
         let next = (fibArray[n]) + (fibArray[n - 1]);
         fibArray.push(next);
-        var evenFibArray = fibArray.filter((a) => a % 2 === 0);
+        let evenFibArray = fibArray.filter((a) => a % 2 === 0);
         count = evenFibArray.reduce((a, b) => a + b);
     }
-    return evenFibArray.reduce((a, b) => a + b);
+    return count;
 }
 
 //console.log(evenFibSum(4000000));
+
+
+// % op up through 10 in a for loop against the parameter to check where to start
+// not giving correct answer for large nums, the 13195 does return the 29
+function largestPrimeFactor(x){
+    let output = [x];
+    let remain;
+    let base = 2;
+    for(let i = base; i < 100; i++){
+        if(x % i === 0){
+            remain = x / i;
+            output.push(i);
+            output.push(remain);
+            break;
+        }
+    }
+    for(let j = base; j < remain; j++){
+        if(remain % j === 0){
+            remain /= j;
+            output.push(j);
+            output.push(remain);
+            break;
+        }
+    }
+    for(let k = base; k < remain; k++){
+        if(remain % k === 0){
+            remain /= k;
+            output.push(k);
+            output.push(remain);
+            break;
+        }
+    }
+    for(let l = base; l < remain; l++){
+        if(remain % l === 0){
+            remain /= l;
+            output.push(l);
+            output.push(remain);
+            break;
+        }
+    }
+    for(let m = base; m < remain; m++){
+        if(remain % m === 0){
+            remain /= m;
+            output.push(m);
+            output.push(remain);
+            break;
+        }
+    }
+    //return output;
+    return output[output.length - 1];
+}
+
+console.log(largestPrimeFactor(76)); //correct, 19
+console.log(largestPrimeFactor(13195));// correct, 29
+console.log(largestPrimeFactor(999));// correct 37
+console.log(largestPrimeFactor(6008514751143));//output 1010131 which is prime
+
+// the problem here is the inner loop decrements too much, need them to basically decrement together
+function largestPalindromeProduct3Digits(){
+    let currentHighest;
+    let compare;
+    for(let i = 999; i > 100; i--){
+        for(let j = 999; j > 100; j--){
+            currentHighest = i * j;
+            compare = Number(currentHighest.toString().split("").reverse().join(""));
+            if(currentHighest === compare){
+                return currentHighest;
+            }
+        }
+    }
+}
+
+//console.log(largestPalindromeProduct3Digits());
