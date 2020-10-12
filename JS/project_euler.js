@@ -145,5 +145,20 @@ function smallestNumDivisible(){
 
 // array of both square then sum and sum then square, use map and reduce and find difference
 function sumSquareDifference(n){
+    let sumSquare = [];
+    let sumSqTotal;
+    let squareSum = [];
+    let squareSumTotal;
+    for(let i = 0; i <= n; i++){
+        sumSquare.push(i);
+        squareSum.push(i);
+    }
+    sumSqTotal = sumSquare.reduce((a, b) => a + b);
+    let totalSumSquare = Math.pow(sumSqTotal, 2);
+    squareSumTotal = squareSum.map((x) => x * x);
+    let totalSquareSum = squareSumTotal.reduce((a, b) => a + b);
 
+    return totalSumSquare - totalSquareSum;
 }
+//25,164,150
+//console.log(sumSquareDifference(100));
