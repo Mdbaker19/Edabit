@@ -40,7 +40,9 @@ function evenFibSum(max){
 
 //console.log(evenFibSum(4000000));
 
-
+// The prime factors of 13195 are 5, 7, 13 and 29.
+//
+// What is the largest prime factor of the number 600851475143 ?
 // % op up through 10 in a for loop against the parameter to check where to start
 // not giving correct answer for large nums, the 13195 does return the 29
 function largestPrimeFactor(x){
@@ -91,10 +93,15 @@ function largestPrimeFactor(x){
     return output[output.length - 1];
 }
 
-console.log(largestPrimeFactor(76)); //correct, 19
-console.log(largestPrimeFactor(13195));// correct, 29
-console.log(largestPrimeFactor(999));// correct 37
-console.log(largestPrimeFactor(6008514751143));//output 1010131 which is prime
+//console.log(largestPrimeFactor(76)); //correct, 19
+//console.log(largestPrimeFactor(13195));// correct, 29
+//console.log(largestPrimeFactor(999));// correct 37
+//console.log(largestPrimeFactor(6008514751143));//output 1010131 which is prime
+
+// A palindromic number reads the same both ways. The largest palindrome made from the product
+// of two 2-digit numbers is 9009 = 91 × 99.
+//
+// Find the largest palindrome made from the product of two 3-digit numbers.
 
 // the problem here is the inner loop decrements too much, need them to basically decrement together
 function largestPalindromeProduct3Digits(){
@@ -110,5 +117,33 @@ function largestPalindromeProduct3Digits(){
         }
     }
 }
-
 //console.log(largestPalindromeProduct3Digits());
+
+// 2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.
+//
+//     What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
+//1,2,3,4,5,6,7,8,9,10,12,14,15,16,18,20
+// 16 --- 2, 4, 8, 16
+// 15 --- 3, 5, 15
+// 12 --- 3, 4, 6, 12
+// 18 --- 2, 9, 18
+// 20 --- 2, 4, 5, 10, 20
+// 14 --- 7, 14, 2
+// 11
+// 13
+// 17
+// 19
+function smallestNumDivisible(){
+    for(let i = 1; i < 300000000; i++){
+        if(i % 16 === 0 && i % 15 === 0 && i % 12 === 0 && i % 18 === 0 && i % 20 === 0 && i % 14 === 0 && i % 11 === 0 && i % 13 === 0 && i % 17 === 0 && i % 19 === 0){
+            return i;
+        }
+    }
+}
+//232,792,560
+//console.log(smallestNumDivisible());
+
+// array of both square then sum and sum then square, use map and reduce and find difference
+function sumSquareDifference(n){
+
+}
