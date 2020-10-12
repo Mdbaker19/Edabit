@@ -184,23 +184,6 @@ function reorderStrings(string){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // question something//
 /*
 Input "Trick or Treat"
@@ -211,7 +194,33 @@ function split(string){
     return string.split(" ");
 }
 
-console.log(split("Trick or Treat"));
+//console.log(split("Trick or Treat"));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
