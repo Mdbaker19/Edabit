@@ -108,18 +108,36 @@ function largestPrimeFactor(x){
 // the problem here is the inner loop decrements too much, need them to basically decrement together
 function largestPalindromeProduct3Digits(){
     let currentHighest;
+    let currentHighest2;
+    let highest;
     let compare;
-    for(let i = 999; i > 100; i--){
+    let compare2;
+    for(let i = 100; i < 999; i++){
         for(let j = 999; j > 100; j--){
             currentHighest = i * j;
             compare = Number(currentHighest.toString().split("").reverse().join(""));
             if(currentHighest === compare){
-                return currentHighest;
+                highest = currentHighest;
             }
         }
     }
+    for(let a = 999; a > 100; a--){
+        for(let b = 999; b > 100; b--){
+            currentHighest2 = a * b;
+            compare2  =  Number(currentHighest2.toString().split("").reverse().join(""));
+            if(currentHighest2 === compare2 && currentHighest2 > highest){
+                highest = currentHighest2;
+            }
+        }
+    }
+    return highest;
 }
-console.log(largestPalindromeProduct3Digits());
+//add another highest variable to compare if the highest is
+//higher than the other highest to just log it in an empty array
+// return highest number from the array at the end
+// current is the i * j
+// new highest is the highest after it is palindrome
+//console.log(largestPalindromeProduct3Digits());
 
 // 2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.
 //
