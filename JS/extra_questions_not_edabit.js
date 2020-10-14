@@ -163,28 +163,51 @@ function amountOfTimesCharRepeated(string, divider){
 // The end string should look like this: "(CARANGAL, GENE)(MEYER, JEFF)(MEYER, TRAVIS)(YOUNG, TOM)"
 
 
+// function reorderStrings(string){
+//     let secondOutput = [];
+//     let output = [];
+//     let orderedArrayOfStrings = string.split(";");
+//     orderedArrayOfStrings.forEach((ele) => {
+//         let splitUp = ele.split(":");//is a string so can split when for eached
+//         output.push(splitUp);
+//     });
+//     output.forEach((element) => {
+//         let reverse = element.unshift();
+//         element.push(reverse);
+//     });
+//     return output;
+// }
+
 function reorderStrings(string){
-    let secondOutput = [];
-    let output = [];
-    let orderedArrayOfStrings = string.split(";");
-    orderedArrayOfStrings.forEach((ele) => {
-        let splitUp = ele.split(":");//is a string so can split when for eached
-        output.push(splitUp);
+    let answer = "";
+    let output = string.toUpperCase();
+    output = output.replace(/;/g, " ");
+    output = output.replace(/:/g, ",");
+    output = output.split(" ");
+    output.forEach((word) => {
+        word = word.split(",");
+        let removed = word.pop();
+        word.unshift(removed);
+        answer += "(" + word + ") ";
     });
-    output.forEach((element) => {
-        let reverse = element.unshift();
-        element.push(reverse);
-    });
-    return output;
+    answer = answer.substring(0, answer.length-1).split(" ").sort().join("");
+    return answer;
 }
-
-//console.log(reorderStrings("Travis:Meyer;Gene:Carangal;Tom:Young;Jeff:Meyer"));
-
-
+// console.log(reorderStrings("Travis:Meyer;Gene:Carangal;Tom:Young;Jeff:Meyer"));
+// console.log(reorderStrings("Matt:Baker;Mandy:Baker;Connor:Houston;Oscar:Huerta"));
 
 
+//--------QUESTION 6-----------//
+//Write a function to calculate a person’s age based on the date entered in the format MM/DD/YYYY.
 
-// question something//
+// function calculateAge(MM/DD/YYYY){
+//
+// }
+
+//console.log(calculateAge(11 / 04 / 1982));
+
+
+// question 7-----Write a function to convert a string into an array of words//
 /*
 Input "Trick or Treat"
 Output: ['Trick', 'or', 'Treat']
@@ -195,11 +218,6 @@ function split(string){
 }
 
 //console.log(split("Trick or Treat"));
-
-
-
-
-
 
 
 

@@ -208,3 +208,14 @@ function sumOfPrimes(x){
 }
 
 //console.log(sumOfPrimes(10));
+
+//trying to build something to run and check any number up to having 500 factors it is
+//divisible by
+function triangularNumber(x){
+    let factors = 0;
+    for(let i = 0; factors <= 500; i++){
+        if(x % i === 0) {
+            factors++;
+        }
+    }
+}
