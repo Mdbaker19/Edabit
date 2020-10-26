@@ -22,8 +22,28 @@ function narcissisticNum(j) {
     }
 }
 
+// 1
+// 2 3
+// 4 5 6
+// 7 8 9 10
+
+function floyd(rows){
+    let output = "";
+    let start = 1;
+    for(let i = 0; i <= rows; i++){
+        for(let j = 1; j <= i; j++){
+            output += " " + start;
+            start++;
+        }
+        output += "\n";
+    }
+    return output;
+}
+
+// console.log(floyd(30));
 
 
+// 6, 14, 15 left
 
 //---------------QUESTION 1---------------------------//
 // Write a function that returns the SUM of a sequence of numbers. This sequence is determined by three variables:
@@ -100,9 +120,7 @@ function twoNumsFromArray(array){
                 //for the negative nums
                 negSum += array[i];
             }
-        } //outside for loop
-        //output.push(count);
-        //output.push(negSum);
+        }
     }
         return [count, negSum];
 }
@@ -162,22 +180,6 @@ function amountOfTimesCharRepeated(string, divider){
 //
 // The end string should look like this: "(CARANGAL, GENE)(MEYER, JEFF)(MEYER, TRAVIS)(YOUNG, TOM)"
 
-
-// function reorderStrings(string){
-//     let secondOutput = [];
-//     let output = [];
-//     let orderedArrayOfStrings = string.split(";");
-//     orderedArrayOfStrings.forEach((ele) => {
-//         let splitUp = ele.split(":");//is a string so can split when for eached
-//         output.push(splitUp);
-//     });
-//     output.forEach((element) => {
-//         let reverse = element.unshift();
-//         element.push(reverse);
-//     });
-//     return output;
-// }
-
 function reorderStrings(string){
     let answer = "";
     let output = string.toUpperCase();
@@ -199,12 +201,14 @@ function reorderStrings(string){
 
 //--------QUESTION 6-----------//
 //Write a function to calculate a person’s age based on the date entered in the format MM/DD/YYYY.
+// Input: 11/04/1982
+// Output: 34
+function calculateAge(MM,DD,YYYY){
+    let today = new Date();
 
-// function calculateAge(MM/DD/YYYY){
-//
-// }
+}
 
-//console.log(calculateAge(11 / 04 / 1982));
+// console.log(calculateAge(11,4,1982));
 
 
 // question 7-----Write a function to convert a string into an array of words//
@@ -219,34 +223,173 @@ function split(string){
 
 //console.log(split("Trick or Treat"));
 
+//-----------QUESTION 8---------//
+
+// Write a function to count the number of occurrences of a substring in a given string.
+//
+//     Example:
+//
+//
+// Input: "The pumpkin rolled down the hill and under someone’s car.", "the"
+// Output: 2
+
+function countWrd(str, word){
+    let newStr = str.toLowerCase();
+    let count = 0;
+    for(let i = 0; i < str.length; i++) {
+        if (newStr.includes(word)) {
+            count++;
+            newStr = newStr.replace(word, "");
+        }
+    }
+    return count;
+}
+
+// console.log(countWrd("The pumpkin rolled down the hill and under someone's car.", "the"));
+
+//----------QUESTION 9------------//
+//Write a function to remove these special characters
+// from a string: ~,!,$,&,%, ,#,@,-,_,^,? (yes, "space" is a character in that list)
+// Input: "Happy ~!&$%#@- Halloween" | Output: "HappyHalloween"
+// Input: "I’ll bet living in a nudist-colony takes all the fun out of Halloween!!" | Output: "IllbetlivinginanudistcolonytakesallthefunoutofHalloween"
+
+function removeSpc(str){
+    let splitUpStr = str.split("").join("");
+    let spc = ["~", "!", "$", "&", "%", " ", "#", "@", "-", "_", "^", "?"];
+    for(let i = 0; i < str.length; i++){
+        for(let j = 0; j < spc.length; j++) {
+            if (splitUpStr.includes(spc[j])){
+                splitUpStr = splitUpStr.replace(spc[j], "");
+            }
+        }
+    }
+    return splitUpStr.split(" ").join(" ");
+}
+
+// console.log(removeSpc("Happy ~!&$%#@- Halloween"));
+// console.log(removeSpc("I’ll bet living in a nudist-colony takes all the fun out of Halloween!!"));
+
+//-----------QUESTION 10-------------//
+//Write a function called "multiply" that takes two integers and returns the product. You are NOT
+// allowed to use the * operator or any imported multiplication function. We will check your code.
+
+function multiply(x, y) {
+    let sum = 0;
+    if (y < 0) {
+        for (let i = 0; i > y; i--) {
+            sum -= x;
+        }
+    } else {
+        for (let i = 0; i < y; i++) {
+            sum += x;
+        }
+    }
+    return sum;
+}
+// console.log(multiply(5, 6));
+// console.log(multiply(-2, -7));
+
+//---------QUESTION 11---------//
+
+// Write a function that takes a string and returns true if all of the characters are the same case, false otherwise.
+//
+//     Examples:
+//
+//
+// Input: "hello world" | Output: true
+// Input: "HELLO WORLD" | Output: true
+// Input: "HeLLo wORld" | Output: false
+
+function caseCheck(word){
+    return (word.toUpperCase() === word || word.toLowerCase() === word);
+}
+
+// console.log(caseCheck("hello world"));
+// console.log(caseCheck("HELLO WORLD"));
+// console.log(caseCheck("HEllo worLD"));
+
+
+
+// function addByEach(arr){
+//     let bucket = [];
+//     let added = 0;
+//     bucket.push(arr[0]);
+//     for(let i = 1; i < arr.length; i++){
+//         for(let j = i; j >= 0; j--){
+//             added += arr[j];
+//             console.log("in loop: " + added);
+//         }
+//         console.log("out of loop: " + added);
+//         bucket.push(added);
+//         console.log("current bucket: " + bucket);
+//     }
+//     return bucket;
+// }
+
+function addByEach(arr){
+    let bucket = [];
+    let adder = 0;
+    for(let i = 0; i < arr.length; i++){
+        adder += arr[i];
+        bucket.push(adder);
+    }
+    return bucket;
+}
+
+// console.log(addByEach([1, 1, 1]));//[1, 2, 3]
+// console.log(addByEach([4, 2, 1, 3, 5]));//[4, 6, 7, 10, 15]
 
 
 
 
 
 
+function isIsogram(word) {
+    let wordArr = word.split("");
+    for (let i = wordArr.length - 1; i > 0; i--) {
+        let removed = wordArr.splice(i, 1);
+        if(wordArr.join("").indexOf(removed) !== -1){
+            return false;
+        }
+    }
+    return true;
+}
+
+// console.log(isIsogram("fish"));//should be true
+// console.log(isIsogram("food"));//should be false
+// console.log(isIsogram("color"));//should be false
 
 
 
+//--------QUESTION 14-----------//
+// Write a function that takes a phone number with letters in it and converts it to one with only numbers.
+//     All input phone numbers will follow this pattern: "###-###-####" (Hint: Search for "phone keypad")
+//
+//     Examples:
+//
+//
+//         Input: 210-367-CODE | Output: 210-367-2633
+// Input: TRY-THE-FOOD | Output: 879-843-3663
 
+function makePhoneNum(input){
 
+}
 
+//--------QUESTION 15-----------//
 
+// Write a function that returns all possible partitions of an array from left to right.
+//     With an n amount of elements in the input the returned array should have n-1 subarrays.
+//     An empty array should return an empty array.
+//
+//     Examples:
+//
+//
+// Input: [1, 5, 3, 2] | Output: [[[1], [5, 3, 2]], [[1, 5], [3, 2]], [[1, 5, 3], [2]]]
+// Input: [a, b, c] | Output: [[[a], [b, c]], [[a, b], [c]]]
 
+function arrayTransform(arr){
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
 
 
 
