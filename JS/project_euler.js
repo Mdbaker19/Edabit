@@ -95,10 +95,10 @@ function largestPrimeFactor(x){
     return output[output.length - 1];
 }
 
-//console.log(largestPrimeFactor(76)); //correct, 19
-//console.log(largestPrimeFactor(13195));// correct, 29
-//console.log(largestPrimeFactor(999));// correct 37
-//console.log(largestPrimeFactor(6008514751143));//output 1010131 which is prime
+// console.log(largestPrimeFactor(76)); //correct, 19
+// console.log(largestPrimeFactor(13195));// correct, 29
+// console.log(largestPrimeFactor(999));// correct 37
+// console.log(largestPrimeFactor(6008514751143));//output 1010131 which is prime
 
 // A palindromic number reads the same both ways. The largest palindrome made from the product
 // of two 2-digit numbers is 9009 = 91 × 99.
@@ -219,3 +219,138 @@ function triangularNumber(x){
         }
     }
 }
+
+// If the numbers 1 to 5 are written out in words: one, two, three, four, five, then there are 3 + 3 + 5 + 4 + 4 = 19 letters used in total.
+//
+//     If all the numbers from 1 to 1000 (one thousand) inclusive were written out in words, how many letters would be used?
+//
+//
+//     NOTE: Do not count spaces or hyphens. For example, 342 (three hundred and forty-two) contains 23
+//     letters and 115 (one hundred and fifteen) contains 20 letters. The use of "and" when writing out numbers is
+//     in compliance with British usage.
+
+function numToWords(num){
+    // how tf do you do this???
+}
+
+function countLettersOfNums(max){
+    let count = 0;
+    for(let i = 1; i <= max; i++){
+        if(i < 100){
+
+        } else if(i < 200 && i > 99){
+            //value is "one hundred and " w/e + the num % 100 as a numToWord as well
+            // one hundred being 15 chars rather than using the word
+        } else if(i < 300 && i > 299){
+
+        } else if(i < 400 && i > 399){
+
+        } else if(i < 500 && i > 499){
+
+        } else if(i < 600 && i > 599){
+
+        } else if(i < 700 && i > 699){
+
+        } else if(i < 800 && i > 799){
+
+        } else if(i < 900 && i > 899){
+
+        } else if(i < 1000 && i > 900){
+
+        }
+        // add the one thousand here too
+    }
+    return count;
+}
+
+
+// The following iterative sequence is defined for the set of positive integers:
+//
+//     n → n/2 (n is even)
+// n → 3n + 1 (n is odd)
+//
+// Using the rule above and starting with 13, we generate the following sequence:
+//
+//     13 → 40 → 20 → 10 → 5 → 16 → 8 → 4 → 2 → 1
+// It can be seen that this sequence (starting at 13 and finishing at 1) contains 10 terms.
+//     Although it has not been proved yet (Collatz Problem), it is thought that all starting numbers finish at 1.
+//
+// Which starting number, under one million, produces the longest chain?
+//
+//     NOTE: Once the chain starts the terms are allowed to go above one million.
+//#14
+
+//---------INFINITE LOOP----------//
+function collatz(num){
+    let count = 0;
+    let highest = count;
+    for(let i = 1; i < num; i++){
+        while(i > 1){
+            if(i % 2 === 0){
+                i /= 2;
+                console.log("even i: " + i);
+            } else {
+                i *= 3;
+                i += 1;
+                console.log("odd i: " + i);
+            }
+            count++;
+        }
+        if(count > highest){
+            highest = i;
+            console.log(highest);
+        }
+    }
+    return highest;
+}
+
+// console.log(collatz(13));
+
+//#29
+function distinctPow(a, b, max, min){
+    let output = [];
+    for(let b = min; b <= max; b++){
+        for(let a = min; a <= max; a++){
+            output.push(a**b);
+        }
+    }
+    let uniques = [...new Set(output)];
+    return uniques.length;
+}
+
+// console.log(distinctPow(2, 2, 5, 2));
+// console.log(distinctPow(2, 2, 100, 2));
+
+//#30
+function fifthPowerSum(x){
+    let count = 0;
+    let numSum = 0;
+    let total = 0;
+    for(let i = 2; count < 10; i++){
+        let strNum = i.toString();
+        let arrNum = strNum.split("");
+        numSum = arrNum.map((ele) => ele**x).reduce((a, b) => a + b);
+        if(i === numSum){
+            console.log(arrNum);
+            count++;
+            total += numSum;
+            console.log(numSum);
+        }
+    }
+    return total;
+}
+//getting 194979
+// console.log(fifthPowerSum(5));
+
+
+
+
+
+
+
+
+
+
+
+
+

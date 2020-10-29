@@ -6,7 +6,6 @@ let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 let numbersUnsorted = [2, 4, 6, 1, 8, 10, 9, 7, 3, 5];
 let numbersWithDup = [1, 2, 3, 4, 5, 4, 6, 7, 8, 9, 10];
 let numbersWithMissing = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15, 16, 17, 18];
-let unsortedNums = [4, 3, 6, 87, 91, 3, 0, 2, 6, 4, 3, 25, 333, 918, 9, 10, 18, 84, 93, 100, 93];
 
 // function sortNums(numArr){
 //     return numArr.sort((a, b) => {
@@ -54,22 +53,6 @@ function findDupNum(numArr){
 // console.log(findDupNum(unsortedNums));
 
 
-function findAllDupNum(numArr){
-    let dupNums = [];
-    for(let i = numArr.length-1; i >= 0; i--) {
-        let removed = numArr.splice(i, 1);
-        if(numArr.join(" ").indexOf(removed) !== -1){
-            dupNums.push(removed);
-        }
-    }
-    if(dupNums.length > 0){
-        return "duplicates found: " + dupNums;
-    }
-    return "no duplicates found";
-}
-
-console.log(findAllDupNum(unsortedNums));
-
 //     3. How to find the largest and smallest number in an unsorted integer array? (solution)
 //
 function minAndMax(numArr){
@@ -113,8 +96,45 @@ function twoNumSum(numArr, x){
 // console.log(twoNumSum(numbers, 11));//basically every number in each order
 
 
+
+
+
+
+
+let unsortedNums = [4, 3, 6, 87, 91, 3, 0, 2, 6, 4, 3, 25, 333, 918, 9, 10, 18, 84, 93, 100, 93];
+
 //     5. How to find duplicate numbers in an array if it contains multiple duplicates? (solution)
-//
+
+function findAllDupNum(numArr){
+    let dupNums = [];
+    for(let i = numArr.length-1; i >= 0; i--) {
+        let removed = numArr.splice(i, 1);
+        if(numArr.indexOf(removed[0]) !== -1){
+            dupNums.push(removed);
+        }
+    }
+    if(dupNums.length > 0){
+        return "duplicates found: " + dupNums;
+    }
+    return "no duplicates found";
+}
+
+// console.log(findAllDupNum(unsortedNums));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -122,41 +142,14 @@ function twoNumSum(numArr, x){
 
 //     6. How to remove duplicates from a given array in Java? (solution)
 //
-
-
-
-
-
-
 //     7. How to sort an integer array in place using QuickSort algorithm? (solution)
 //
-
-
-
-
-
 //     8. How to remove duplicates from an array in place? (solution)
 //
-
-
-
-
-
 //     9. How to reverse an array in place in Java? (solution)
 //
-
-
-
-
-
 //     10. How to find multiple missing numbers in given integer array with duplicates? (solution)
 //
-
-
-
-
-
-
 // _____________STRING QUESTIONS____________-
 //
 //     11. How to Print duplicate characters from String? (solution)

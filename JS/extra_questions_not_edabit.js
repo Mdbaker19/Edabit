@@ -22,6 +22,43 @@ function narcissisticNum(j) {
     }
 }
 
+
+function mostCommonChar(str){
+    let counts = [];
+    let uniques = [];
+    for(let i = 0; i < str.length; i++){
+        let count = 0;
+        for(let j = 1; j < str.length; j++){
+            if(str[i] === str[j]){
+                str = str.replace(str[i], "");
+                count++;
+            } else {
+                uniques.push(str[i]);
+            }
+        }
+        counts.push(count);
+    }
+    return [counts, uniques];
+}
+
+//3m, 1y, 1d, 2o, 1g, 2s, 2n, 1a, 3m, 2e, 1i, 2s, 2n ,2e, 3m, 2o;
+console.log(mostCommonChar("mydogsnameisnemo"));
+
+
+let shortNums = [1, 2, 2];
+function sumSqr(arr){
+    let sum = 0;
+    arr.forEach((num) => {
+        sum += num**2;
+    });
+    return sum;
+}
+
+
+
+
+// console.log(sumSqr(shortNums));
+
 // 1
 // 2 3
 // 4 5 6
@@ -41,6 +78,11 @@ function floyd(rows){
 }
 
 // console.log(floyd(30));
+
+
+
+
+
 
 
 // 6, 14, 15 left
@@ -85,10 +127,7 @@ function sumOfSequenceSteps(start, finish, step){
 
 function hasEnglish(string){
     let lowString = string.toLowerCase();
-    if(lowString.includes("english")){
-        return true;
-    }
-    return false;
+    return (lowString.includes("english"))
 }
 
 // console.log(hasEnglish("FaagdnglishAGG"));
@@ -348,7 +387,7 @@ function isIsogram(word) {
     let wordArr = word.split("");
     for (let i = wordArr.length - 1; i > 0; i--) {
         let removed = wordArr.splice(i, 1);
-        if(wordArr.join("").indexOf(removed) !== -1){
+        if(wordArr.indexOf(removed[0]) !== -1){
             return false;
         }
     }
@@ -372,8 +411,22 @@ function isIsogram(word) {
 // Input: TRY-THE-FOOD | Output: 879-843-3663
 
 function makePhoneNum(input){
-
+    let nums = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+    let chars = "";
+    let findLetter;
+    for(let i = 0; i < input.length; i++) {
+        findLetter = input[i];
+    }
+    for(let j = 0; j < nums.length; j++){
+        if(findLetter !== nums[j]){
+            chars+=findLetter;
+        }
+    }
+    return chars;
 }
+
+// console.log(makePhoneNum("210367CODE"));
+// console.log(makePhoneNum("TRYTHEFOOD"));
 
 //--------QUESTION 15-----------//
 
