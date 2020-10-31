@@ -229,39 +229,71 @@ function triangularNumber(x){
 //     letters and 115 (one hundred and fifteen) contains 20 letters. The use of "and" when writing out numbers is
 //     in compliance with British usage.
 
-function numToWords(num){
-    // how tf do you do this???
-}
+//value is "one hundred and " w/e + the num % 100 as a numToWord as well
+// one hundred being 15 chars rather than using the word
 
 function countLettersOfNums(max){
     let count = 0;
-    for(let i = 1; i <= max; i++){
-        if(i < 100){
+    let numsStringArr = [];//push the "one", "two" and so on up till "ninety nine" as numbers, then add each of these again to the loops sections
+    for(let i = 1; i < max; i++){
+        if(i < 100){//sub 100
 
-        } else if(i < 200 && i > 99){
-            //value is "one hundred and " w/e + the num % 100 as a numToWord as well
-            // one hundred being 15 chars rather than using the word
-        } else if(i < 300 && i > 299){
+        } else if(i < 300 && i > 99 || i < 700 && i > 599){//one two, six
 
-        } else if(i < 400 && i > 399){
+        } else if(i < 600 && i > 299 || i > 899 && i < 1000){//three, four, five, nine
 
-        } else if(i < 500 && i > 499){
-
-        } else if(i < 600 && i > 599){
-
-        } else if(i < 700 && i > 699){
-
-        } else if(i < 800 && i > 799){
-
-        } else if(i < 900 && i > 899){
-
-        } else if(i < 1000 && i > 900){
+        } else if(i < 900 && i > 699){//seven eight
 
         }
         // add the one thousand here too
+        //count += 1000 as a string spelled out in a number form of it's length
     }
-    return count;
+    return numsStringArr.reduce((a, b) => a + b);
 }
+// countLettersOfNums(1000);
+
+// top for loop would be iterating through the hundreds and moving across the array of letter counts for each of the hundreds
+// middle loop would add the tens to it by iterating through
+// inner loop of that would be adding w/e index of the hundreds to each of the numbers in that
+// tenty = 3(ten)
+//twenty 6
+// thirty 6
+// fourty 6
+// fifty 5
+// sixty 5
+// seventy 7
+// eighty 6
+// ninety 6
+function numLetters(){
+    let allNums = [];
+    // hundred and = 10
+    let hundreds = [13, 13, 15, 14, 14, 13, 15, 15, 14];
+    // eleven, twelve, thirteen, fourteen....nineteen
+    let teens = [3, 6, 6, 8, 8, 7, 7, 9, 9, 8];
+    // starting with twenty--ninety
+    let tens = [6, 6, 5, 5, 5, 7, 6, 6];
+    // singles has 1 - 9
+    let singles = [3, 3, 5, 4, 4, 3, 5, 5, 4];
+    for(let h = -1; h < hundreds.length; h++){
+        //teens are included once per hundred
+        teens.forEach((num) => allNums.push(num));
+        for(let t = -1; t < tens.length; t++){
+            //maybe add an if when t is 0 to add w/e remainder is left from the 3 as well from ven, lve, rteen, rteen, teen, teen, enteen....
+            for(let s = 0; s < singles.length; s++){
+                allNums.push(singles[s]);
+                allNums.push(tens[t]);
+                allNums.push(hundreds[h]);
+            }
+        }
+    }
+    allNums.push(10);//1000
+    // filter added to remove the undefined added because of the -1 starting points
+    return allNums.filter(x => x).reduce((a, b) => a + b);
+}
+// i think the problem is within the teens sections
+console.log(numLetters());
+
+
 
 
 // The following iterative sequence is defined for the set of positive integers:

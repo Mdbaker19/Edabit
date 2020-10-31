@@ -23,6 +23,32 @@ function narcissisticNum(j) {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function mostCommonChar(str){
     let counts = [];
     let uniques = [];
@@ -42,7 +68,128 @@ function mostCommonChar(str){
 }
 
 //3m, 1y, 1d, 2o, 1g, 2s, 2n, 1a, 3m, 2e, 1i, 2s, 2n ,2e, 3m, 2o;
-console.log(mostCommonChar("mydogsnameisnemo"));
+// console.log(mostCommonChar("mydogsnameisnemo"));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//valid nesting
+
+//------------COME BACK TO THIS-----------//
+function isValidNesting(str){
+    let count = 0;
+    let openP = str.indexOf("(");
+    let closeP = str.indexOf(")");
+    let openB = str.indexOf("[");
+    let closeB = str.indexOf("]");
+    let openC = str.indexOf("{");
+    let closeC = str.indexOf("}");
+    let pNest = false;
+    let bNest = false;
+    let cNest = false;
+    if(openP !== -1 && closeP !== -1){
+        pNest = true;
+    } else if(openP === -1 && closeP === -1){
+        count+=1;
+    }
+    if(openB !== -1 && closeB !== -1){
+        bNest = true;
+    } else if(openB === -1 && closeB === -1){
+        count+=1;
+    }
+    if(openC !== -1 && closeC !== -1){
+        cNest = true;
+    } else if(openC === -1 && closeC === -1){
+        count+=1;
+    }
+    if(pNest){
+        if(openP < closeP){
+            count+=1;
+        }
+    }
+    if (bNest){
+        if(openB < closeB){
+            count+=1;
+        }
+    }
+    if(cNest){
+        if(openC < closeC){
+            count+=1;
+        }
+    }
+    return count === 3;
+}
+
+console.log(isValidNesting("if(this works) [we good] probably] {At least I hope}"));
+console.log(isValidNesting("(this works) probably {At least I hope}"));
+console.log(isValidNesting("if(this works) we good] [probably] {At least I hope}"));
+console.log(isValidNesting("hellos"));
+
+
+
+
+
+
+
+let first = [1, 2, 3, 4, 5, 6, false, null, 7];
+let second = [2, 4, true, "up", 3, 1, 7];
+let third = [1, 2, 3, 4, "a", "hat", 5, 6, 7, 8, 9, 0, 1010];
+
+
+//return unique values of first that are not in the second
+function arrTest(a1, a2){
+    let bucket = [];
+    for(let i = 0; i < a1.length; i++){
+        if(a2.indexOf(a1[i]) === -1){
+            bucket.push(a1[i]);
+        }
+    }
+    return bucket;
+}
+
+// console.log(arrTest(first, second));
+// console.log(arrTest(second, third));
+// console.log(arrTest(first, third));
+// console.log(arrTest(third, first));
+// console.log(arrTest(third, second));
 
 
 let shortNums = [1, 2, 2];
