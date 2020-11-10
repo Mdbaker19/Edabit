@@ -41,14 +41,6 @@ function narcissisticNum(j) {
 
 
 
-
-
-
-
-
-
-
-
 function mostCommonChar(str){
     let counts = [];
     let uniques = [];
@@ -459,18 +451,13 @@ function removeSpc(str){
 //Write a function called "multiply" that takes two integers and returns the product. You are NOT
 // allowed to use the * operator or any imported multiplication function. We will check your code.
 
-function multiply(x, y) {
-    let sum = 0;
-    if (y < 0) {
-        for (let i = 0; i > y; i--) {
-            sum -= x;
-        }
-    } else {
-        for (let i = 0; i < y; i++) {
-            sum += x;
-        }
+function multiply(x, y){
+    if(y < 1 && y >= 0){
+        return 0;
+    }else if(y < 0){
+        return x + multiply(x, y+1);
     }
-    return sum;
+    else return x + multiply(x, y-1);
 }
 // console.log(multiply(5, 6));
 // console.log(multiply(-2, -7));
